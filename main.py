@@ -6,19 +6,19 @@ def calculater_button():
 
         y = height_entry.get()
         x = weight_entry.get()
-        calculation = float(x) / (float(y) / 100 * float(y) / 100)
+        calculation = float(x) / ((float(y)/100)**2)
         if calculation < 18.5:
-            our_label.config(text="Under Weight")
+            our_label.config(text=f"Your BMI is {round(calculation,2)}: Under Weight")
         elif 18.5 <= calculation < 24.9:
-            our_label.config(text="Normal Weight")
+            our_label.config(text=f"Your BMI is {round(calculation,2)}: Normal Weight")
         elif 24.9 <= calculation < 29.9:
-            our_label.config(text="Over Weight")
+            our_label.config(text=f"Your BMI is {round(calculation,2)}: Over Weight")
         elif 29.9 <= calculation < 34.9:
-            our_label.config(text="Obesity Class 1")
+            our_label.config(text=f"Your BMI is {round(calculation,2)}: Obesity Class 1")
         elif 34.9 <= calculation < 39.9:
-            our_label.config(text="Obesity Class 2")
+            our_label.config(text=f"Your BMI is {round(calculation,2)}: Obesity Class 2")
         elif 40 < calculation:
-            our_label.config(text="Obesity Class 3")
+            our_label.config(text=f"Your BMI is {round(calculation,2)}: Obesity Class 3")
     except ValueError:
         if x == "" or y == "":
             our_label.config(text="Enter both weight and height")
